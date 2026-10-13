@@ -1,0 +1,31 @@
+CASARADAR ROMA - PACCHETTO COMPLETO (GitHub + Netlify)
+
+IMPORTANTE: La cartella che contiene questo file contiene gia index.html,
+telegram-test.html, netlify.toml e la cartella netlify/functions.
+
+1) Se usi gia Netlify con il progetto "casaradarroma", NON crearne un altro.
+2) Su GitHub nel repository collegato elimina la vecchia sottocartella
+   "casaradar-roma-v3-telegram (1)" se presente, poi carica TUTTI
+   i contenuti di questo pacchetto nella RADICE del repository:
+   index.html e netlify.toml devono vedersi subito aprendo il repository.
+   Importante: carica anche la cartella netlify con functions/telegram-test.mjs.
+   Usa GitHub → Add file → Upload files e trascina i file e le cartelle estratti.
+3) In Netlify → Project configuration → Build settings:
+   - Base directory: VUOTA (radice del repository)
+   - Publish directory: . (punto)
+   - Functions directory: netlify/functions (nel netlify.toml)
+   Rimuovi eventuali impostazioni precedenti che puntano a sottocartelle.
+4) Conserva le environment variables SULLO STESSO SITO Netlify:
+   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, CASARADAR_ADMIN_KEY
+   Scope Functions / All scopes e ambiente Production. Non copiarle nel repo.
+5) Netlify → Deploys → Trigger deploy → Deploy site.
+6) Controlla https://casaradarroma.netlify.app/
+   e https://casaradarroma.netlify.app/telegram-test.html
+7) Verifica https://casaradarroma.netlify.app/.netlify/functions/telegram-test
+   Deve rispondere HTTP 405 con il JSON {"error":"Metodo non consentito"}.
+8) Nella pagina telegram-test.html inserisci SOLO la chiave amministrativa.
+
+NOTA: questo pacchetto NON contiene ancora monitoraggio automatico annunci;
+la funzione Telegram invia un unico messaggio di prova manuale.
+I preferiti e gli annunci manuali sono nel browser (localStorage): prima
+di sostituire versioni esporta il backup JSON dall'app.
